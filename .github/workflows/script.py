@@ -5,7 +5,7 @@ from openai import ChatCompletion, OpenAIAPIError
 openai.api_key = 'OPENAI_API_KEY'
 model = "text-davinci-003"
 
-# ChatGPTに質問する関数
+# generate question
 def ask_question(prompt):
     try:
         response = openai.Completion.create(
@@ -18,10 +18,10 @@ def ask_question(prompt):
         print(f"Error interacting with ChatGPT: {e}")
         return "ChatGPT interaction error"
 
-# メール送信関数
+# send mail
 def send_email(subject, body, to_email):
-    from_email = 'EMAIL@gmail.com'
-    password = 'YOUR_EMAIL_PASSWORD'
+    from_email = 'EMAIL'
+    password = 'EMAIL_PASSWORD'
 
     msg = MIMEText(body)
     msg['Subject'] = subject
@@ -33,7 +33,7 @@ def send_email(subject, body, to_email):
         server.login(from_email, password)
         server.sendmail(from_email, to_email, msg.as_string())
 
-# メインの実行関数
+# main
 def main():
     question = "I would like you to make a sample problem and answer of an independent task of the speaking section of the TOEFL test. The model answer should be approx. 60 sec. and 120 words. "
     answer = ask_question(question)
