@@ -25,5 +25,5 @@ jobs:
     - name: Run script
       run: python script.py
       env:
-        EMAIL: ${{ secrets.YOUR_EMAIL }}
-        EMAIL_PASSWORD: ${{ secrets.YOUR_EMAIL_PASSWORD }}
+        EMAIL: ${{ secrets.EMAIL }}
+        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
